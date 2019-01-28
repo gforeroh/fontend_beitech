@@ -14,6 +14,7 @@ $(document).ready(function () {
     getOrder = async (customerId, timeStampStart, timeStampEnd) => {
         const settings = {
             method: 'GET',
+            mode: 'cors',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
