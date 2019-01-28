@@ -1,6 +1,6 @@
 $(document).ready(function () {
     moment.locale('es');
-    var rootService = 'http://localhost/prueba_beitech';
+    var rootService = 'http://api.gerardoforero.com';
 
     let customerId = null;
     let timeStampStart = null;
