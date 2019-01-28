@@ -12,25 +12,37 @@ $(document).ready(function () {
     // timeStampEnd = moment("2019-01-02", "YYYY-MM-DD").unix();
 
     getOrder = async (customerId, timeStampStart, timeStampEnd) => {
+        let url = `${rootService}/orders/orders?customer_id=${customerId}&timeStampStart=${timeStampStart}&timeStampEnd=${timeStampEnd}`;  
+       
+        var myHeaders = new Headers({
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            // "Access-Control-Allow-Origin": url,
+        });
+
+
+        
+
         const settings = {
             method: 'GET',
-            mode: 'cors',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://api.gerardoforero.com/*'
-            }
+            // mode: 'no-cors',
+            headers: myHeaders,
+            // {
+            //     'Accept': 'application/json',
+            //     'Content-Type': 'application/json',
+            //     'Access-Control-Allow-Origin': 'http://api.gerardoforero.com/',
+            // },
         };
+
         
-        let url = `${rootService}/orders/orders?customer_id=${customerId}&timeStampStart=${timeStampStart}&timeStampEnd=${timeStampEnd}`;        
+        
+                 
         const data = await fetch(url, settings)
             .then(response => response.json())
             .then(json => {
                 let { customersList, orders } = json;
-                // console.log(json);
-                
-                fnFillTable(orders);
-                
+
+                fnFillTable(orders);                
                 if (!flag){
                     let options = `<option value="0">-- Seleccione un cliente --</option>`;
                     $.each(customersList, function (key, value) {
