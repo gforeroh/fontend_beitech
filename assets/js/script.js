@@ -17,6 +17,7 @@ $(document).ready(function () {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'http://api.gerardoforero.com/*'
             }
         };
         
