@@ -17,7 +17,7 @@ $(document).ready(function () {
         var myHeaders = new Headers({
             "Accept": "application/json",
             "Content-Type": "application/json",
-            // "Access-Control-Allow-Origin": url,
+            "Access-Control-Allow-Origin": url,
         });
 
 
