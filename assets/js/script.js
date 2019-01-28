@@ -12,11 +12,15 @@ $(document).ready(function () {
 
     getOrder = async (customerId, timeStampStart, timeStampEnd) => {
         const settings = {
+            mode :'cors',
             method: 'GET',
+            credentials: 'include',
+            cache: 'no-cache',
             headers: {
-                'Access-Control-Allow-Origin': 'http://localhost/prueba_beitech',
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Credentials':true,
+                'Access-Control-Allow-Origin':true
             }
         };
         
