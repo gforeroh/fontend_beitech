@@ -1,6 +1,7 @@
 $(document).ready(function () {
     moment.locale('es');
     var rootService = 'http://api.gerardoforero.com';
+    // var rootService = 'http://localhost/prueba_beitech';
 
     let customerId = null;
     let timeStampStart = null;
@@ -12,24 +13,19 @@ $(document).ready(function () {
 
     getOrder = async (customerId, timeStampStart, timeStampEnd) => {
         const settings = {
-            mode :'cors',
             method: 'GET',
-            credentials: 'include',
-            cache: 'no-cache',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Credentials':true,
-                'Access-Control-Allow-Origin':true
             }
         };
         
-        let url = `${rootService}/Orders/orders?customer_id=${customerId}&timeStampStart=${timeStampStart}&timeStampEnd=${timeStampEnd}`;        
+        let url = `${rootService}/orders/orders?customer_id=${customerId}&timeStampStart=${timeStampStart}&timeStampEnd=${timeStampEnd}`;        
         const data = await fetch(url, settings)
             .then(response => response.json())
             .then(json => {
                 let { customersList, orders } = json;
-                console.log(json);
+                // console.log(json);
                 
                 fnFillTable(orders);
                 

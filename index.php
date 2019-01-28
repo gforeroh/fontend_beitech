@@ -12,7 +12,12 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css" />
 
         <link rel="stylesheet" href="assets/css/style.css" >
-        
+
+        <?php
+            header('Access-Control-Allow-Origin: *');
+            header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+            header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
+        ?>        
     </head>
     <body >
         <div class="container">
