@@ -17,26 +17,13 @@ $(document).ready(function () {
         var myHeaders = new Headers({
             "Accept": "application/json",
             "Content-Type": "application/json",
-            // "Access-Control-Allow-Origin": url,
         });
-
-
-        
 
         const settings = {
             method: 'GET',
-            // mode: 'no-cors',
             headers: myHeaders,
-            // {
-            //     'Accept': 'application/json',
-            //     'Content-Type': 'application/json',
-            //     'Access-Control-Allow-Origin': 'http://api.gerardoforero.com/',
-            // },
         };
-
-        
-        
-                 
+   
         const data = await fetch(url, settings)
             .then(response => response.json())
             .then(json => {
